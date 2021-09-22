@@ -12,11 +12,6 @@ string break_signal = "end";
 // if value was pased returns their aver
 // if break_signal was pased returns -1
 // plus gigving some feedback to user 
-//
-// TODO
-// test
-// make user output 
-// coment
 float manage_input() {
     string value;
     bool fail_flag = false;
