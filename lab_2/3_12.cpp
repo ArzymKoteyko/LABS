@@ -29,14 +29,11 @@ float space_triangle(float side) {
 
 int main() {
 
-	int n;
 	float side;
 	float space;
 	string value;
 	cout << "Methods: <square> <circle> <triangle>\n";
-	cout << "PLease enter ammount: ";
-	cin >> n;
-	for (int i=0; i<n; i++) {
+	while (true) {
 		cout << "Enter side length: ";
 		cin >> value;
 		if (value == break_signal) {

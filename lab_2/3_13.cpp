@@ -30,14 +30,11 @@ float space_trgl(float side_a, float side_b) {
 
 int main() {
 
-	int n;
 	float side_a, side_b;
 	float space;
 	string value;
 	cout << "Methods: <rect> <ring> <trgl>\n";
-	cout << "PLease enter ammount: ";
-	cin >> n;
-	for (int i=0; i<n; i++) {
+	while (true) {
 		cout << "Enter sides length: ";
 		cin >> value;
 		if (value == break_signal) {

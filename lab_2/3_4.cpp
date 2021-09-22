@@ -35,15 +35,13 @@ int main() {
     // Console Log
     // and
     // Value initialization
-    cout << "Please nter ammount of dots: ";
-    cin >> n;
     cout << "Enter inside radius: ";
     cin >> radius_1;
     cout << "Enter outside radius: ";
     cin >> radius_2;
     cout << "To stop program enter <end>\n";
     // Main cycle
-    for (int i =0; i < n; i++) {
+    while (true) {
         cout << "Enter point cords: ";
         cin >> value;
         // Checking break condition

@@ -19,40 +19,49 @@ string break_signal = "end";
 // coment
 float manage_input() {
     string value;
+    bool fail_flag = false;
     int mark;
     int sum = 0;
     float aver;
-    cin >> value;
-    if (value == break_signal) {
-        return -1; // stops program
+    for (int i=0; i<4; i++) {
+        // add student mark to aver sum
+        cin >> value;
+        if (value == break_signal) {
+            return -1;
+        }
+        mark = stof(value);
+        if (mark == 2) {
+            fail_flag = true;
+        }
+        sum += mark;
+    }
+    aver = sum / 4;
+    if (fail_flag) {
+        cout << "Student marks wont count\n\n";
+        return -2;
     }
     else {
-        mark = stof(value); 
-        for (int i=0; i<3; i++) {
-            cin >> mark;
-            sum += mark;
-        }
-        aver = sum / 4;
+        cout << "\n";
         return aver; // aver of 4 student marks
     }
 }
 
 int main () {
-    int n;
     int counter = 0;
+    int bad_counter = 0;
     float sum = 0;
     float total_aver;
     float input_res;
-    cin >> n;
-    // whisut break signal porcessing user input 
-    // and 
-    // updating total aver
-    // TODO
-    // make couter of bad students 
-    for (int i=0; i<n; i++) {
+    cout << "To finish programm enter <end>\n";
+    while (true) {
+        cout << "Enter student marks: ";
         input_res = manage_input();
         if (input_res == -1) {
-            cout << "END";
+            cout << "End of a programm\n";
+            break;
+        }
+        else if (input_res == -2) {
+            bad_counter += 1;
         }
         else {
             counter += 1;
@@ -60,6 +69,8 @@ int main () {
         }
     }
     total_aver = sum / counter;
-    cout << total_aver;
+    cout << "\n";
+    cout << "Average students mark: " << total_aver << "\n";
+    cout << "Bad students: " << bad_counter << "\n";
     return 0;
 }
