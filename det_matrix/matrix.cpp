@@ -12,6 +12,7 @@ Matrix::Matrix(int init_size) {
 }
 
 
+// actions with matrix_size
 void Matrix::set_size(int new_size) {	
 	matrix_size = new const int(new_size);
 } 
@@ -23,6 +24,7 @@ void Matrix::say_size() {
 }
 
 
+// actions with matrix
 void Matrix::malloc_matrix() {
 	matrix = new int*[*matrix_size];
 	for (int i=0; i < *matrix_size; i++) {
@@ -52,4 +54,3 @@ void Matrix::say_matrix() {
 		cout << "\n";
 	}
 }
-
