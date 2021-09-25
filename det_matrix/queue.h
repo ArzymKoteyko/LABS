@@ -15,8 +15,8 @@ class Queue {
 
 		void append_start(int);
 		void append_back(int);
-		void pop_start();
-		void pop_back();
+		int pop_start();
+		int pop_back();
 	private:
 		void set_size(int);
 };
