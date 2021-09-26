@@ -70,3 +70,6 @@ void Queue::say_queue () {
 	}
 	cout << "\n";
 }
+int Queue::get_size() {
+	return queue_head.value;
+}

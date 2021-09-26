@@ -5,37 +5,39 @@ using namespace std;
 #include "matrix.h"
 #include "queue.h"
 
+void iterate (Queue *used, Queue *left, Matrix *matrix) {
+	if (left->get_size()>2) {
+		for (int i=0; i<left->get_size(); i++) {
+			used->append_back(left->pop_start());
+			iterate(used, left, matrix);
+			left->append_back(used->pop_back());
+		}
+	}
+	else {
+		used->say_queue();
+		left->say_queue();
+		for (int i=0; i<20; i++) {
+			cout << "-";
+		}
+		cout <<"\n";
+	}
+}
+
 int main () {
 	
 	srand( time(0) );
 	Matrix A(4);
 	A.say_size();
 	A.say_matrix();
-
-	Queue q;
-	q.append_start(3);
-	q.append_start(5);
-	q.append_start(2);
-	q.append_start(8);
-	q.append_start(1);
-	q.say_size();
-	q.say_queue();
-	cout << q.pop_start() << "\n";
-	q.say_size();
-	q.say_queue();
-	q.pop_start();
-	q.pop_start();
-	q.say_size();
-	q.say_queue();
-	q.append_back(4);
-	q.append_back(1);
-	q.say_size();
-	q.say_queue();
-	q.pop_back();
-	q.pop_back();
-	q.append_back(87);
-	q.say_size();
-	q.say_queue();
+	
+	Queue left_items;
+	Queue used_items;
+	for (int i=1; i<=4; i++) {
+		left_items.append_back(i);
+	}
+	left_items.say_queue();
+	used_items.say_queue();
+	iterate(&used_items, &left_items, &A);
 	return 0;
 
 }
