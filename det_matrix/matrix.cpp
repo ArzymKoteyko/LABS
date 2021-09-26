@@ -34,7 +34,7 @@ void Matrix::malloc_matrix() {
 void Matrix::gen_matrix() {
 	for (int i=0; i< *matrix_size; i++) {
 		for (int j=0; j < *matrix_size; j++) {
-			matrix[i][j] = rand()%100;
+			matrix[i][j] = rand()%10;
 		}
 	}
 }

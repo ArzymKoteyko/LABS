@@ -11,6 +11,7 @@ class Queue {
 		Queue ();
 		int get_size();
 		void say_size();
+		queue_element* get_queue();
 		void say_queue();
 
 		void append_start(int);

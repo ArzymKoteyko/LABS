@@ -73,3 +73,6 @@ void Queue::say_queue () {
 int Queue::get_size() {
 	return queue_head.value;
 }
+queue_element* Queue::get_queue() {
+	return &queue_head;
+}
