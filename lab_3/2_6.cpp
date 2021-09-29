@@ -21,7 +21,7 @@ int main () {
 	}
 	cout << "\n";
 	int ave = average(A, 10);
-	int dif = 10000000;
+	int dif = fabs(A[0]-ave);
 	int id = -1;
 	for (int i=0; i<10; i++) {
 		if (fabs(A[i]-ave) < dif) {
@@ -46,4 +46,5 @@ int main () {
 	}
 	cout << "\n";
 	return 0;
+
 }

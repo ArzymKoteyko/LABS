@@ -15,20 +15,20 @@ int main () {
         cout << A[i] << " ";
     }
     cout << "\n";
-    int c = 0;
     int len = 12;
-    while (c < len) {
-        if (A[c] < 0) {
-            swap(A[c], A[len-1]);
-            A[len-1] = 0;
+    int i=0;
+    while (i<len){
+        if (A[i] < 0) {
+            for (int j=i; j<11; j++) {
+                A[j] = A[j+1];
+            }
             len--;
         }
         else {
-            c++;
+            i++;
         }
     }
-    
-    for (int i=0; i<12; i++) {
+    for (int i=0; i<len; i++) {
         cout << A[i] << " ";
     }
     cout << "\n";
