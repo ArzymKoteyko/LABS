@@ -2,26 +2,26 @@
 
 using namespace std;
 
-int array[10] = {-1,-3,2,8,9,7,-2,13,4,3};
-int maxx = -100000;
-int minn =  100000;
+int my_array[10] = {-1,-3,2,8,9,7,-2,13,4,3};
+int maxx = my_array[0];
+int minn =  my_array[0];
 int max_id = -1;
 int min_id = -1;
 
 int main () {
 
 	for (int i=0; i<10; i++) {
-		cout << array[i] << " ";
+		cout << my_array[i] << " ";
 	}
 	cout << "\n";
 	
 	for (int i=0; i<10; i++) {
-		if (array[i] < minn) {
-			minn = array[i];
+		if (my_array[i] < minn) {
+			minn = my_array[i];
 			min_id = i;
 		}
-		if (array[i] > maxx) {
-			maxx = array[i];
+		if (my_array[i] > maxx) {
+			maxx = my_array[i];
 			max_id = i;
 		}
 	}
@@ -36,7 +36,7 @@ int main () {
 	float average = 0;
 	int c = 0;
 	for (int i=min_id+1; i<max_id; i++) {
-		average += array[i];
+		average += my_array[i];
 		c++;
 	}
 	average /= c;

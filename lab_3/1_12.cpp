@@ -2,15 +2,15 @@
 
 using namespace std;
 
-int array[8] = {-1, -2, 4, 3, -6, 3, 0, 1}; 		// res -> index: 4 value: -6
-//int array[8] = {0, -1, -2, -3, -4, -5, -6, 0}; 		// res -> index: 6 value: -6
-//int array[8] = {0, 1, 0, 1, 0, 1, 2, 3}; 		// res -> NONE
+int A[8] = {-1, -2, 4, 3, -6, 3, 0, 1}; 		// res -> index: 4 value: -6
+//int A[8] = {0, -1, -2, -3, -4, -5, -6, 0}; 		// res -> index: 6 value: -6
+//int A[8] = {0, 1, 0, 1, 0, 1, 2, 3}; 		// res -> NONE
 int main () {
 	
-	// printing specified array
-	cout << "Specified array's items: [ ";
+	// printing specified A
+	cout << "Specified A's items: [ ";
 	for (int i = 0; i < 8; i++) {
-		cout << array[i] << " ";
+		cout << A[i] << " ";
 	}
 	cout << "]\n";
 	
@@ -19,9 +19,9 @@ int main () {
 	int value;
 	bool find = false;
 	for (int i = 0; i < 8; i++) {
-		if (array[i] < 0) {
+		if (A[i] < 0) {
 			index = i;
-			value = array[i];
+			value = A[i];
 			find = true;
 		}
 	}

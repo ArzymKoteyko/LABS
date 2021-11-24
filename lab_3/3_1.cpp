@@ -5,7 +5,7 @@ using namespace std;
 int maxs[10];
 int A[10] = {2,-2,3,1,7,8,-10,8,7,8};
 int c = 0;
-int maxx = -1000000;
+int maxx = A[0];
 
 int main () {
     for (int i=0; i<10; i++) {

@@ -17,7 +17,7 @@ int main () {
     cout << "\n";
     for (int i=0; i<10; i++) {
         if (A[i] < 0) {
-            int maxx = -1000000;
+            int maxx = A[0];
             int max_id = -1;
             for (int j=i; j<10; j++) {
                 if (A[j] < 0) {

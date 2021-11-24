@@ -16,7 +16,7 @@ int main () {
     }
     cout << "\n";
     for (int i=0; i<10; i+=2) {
-        int minn = 100000;
+        int minn = A[0];
         int min_id = -1;
         for (int j=i; j<10; j+=2) {
             if (A[j] <= minn) {

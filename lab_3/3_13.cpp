@@ -11,6 +11,11 @@ int main() {
         cout << A[i] << " ";
     }
     cout << "\n";
+    for (int i=0; i<10/2; i++) {
+        first[i] = A[i*2];
+        second[i] = A[i*2+1];
+    }
+    /*
     for (int i=0; i<10; i++) {
          if (i%2==0) {
             first[i/2]=A[i];
@@ -19,6 +24,7 @@ int main() {
             second[(i-1)/2]=A[i];
          }
     }
+    */
     for (int i=0; i<5;i++) {
         cout << first[i] << " ";
     }
