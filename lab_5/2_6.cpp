@@ -3,26 +3,55 @@
 
 using namespace std;
 
-vector<int> A = {  0,  3, 13, -3, -2, 13,  0};
-//vector<int> B = { 10,  2,  3, -2, -3, 10,  9,  8, 10};
+const int a_len_init = 7;
+const int b_len_init = 8;
 
+int a_len = a_len_init;
+int b_len = b_len_init;
+
+int A[a_len_init + b_len_init] = {1,-2,-3,4,-5,-6,-7,0,0,0,0,0,0,0,0};
+int B[b_len_init] = {10,20,30,40,-50,60,-70,-80};
+
+void del (int *array, int *len, int idx) {
+	for (int i=idx; i<*len-1; i++) {
+		array[i] = array[i+1];
+	}
+	*len -= 1;
+}
+
+void print_array (int *array, int *len) {
+	for (int i=0; i<*len; i++) {
+		cout << array[i] << " ";
+	}
+	cout << endl;
+}
+
+int max (int *array, int *len) {
+	int idx = 0;
+	int max = array[0];
+	for (int i=0; i<*len; i++) {
+		if (array[i] > max) {
+			max = array[i];
+			idx = i;
+		}
+	}
+	return idx;
+}
+
+void concat(int *a_array, int *a_len, int *b_array, int *b_len) {
+	for (int i=0; i<*b_len; i++) {
+		a_array[i+(*a_len)] = b_array[i];
+	}
+	*a_len += *b_len;
+}
 
 int main() {
-	vector<int> A;
-	A.push_back(0);
-	int i;
-	int max = A[0];
-	int n = A.size();
-	for (i=0; i<A.size(); i++) {
-		if (A[i] > max) {
-			max = A[i];
-		}
-	}
-	for (i=0;i<n;i++) {
-		if (A[i] == max) {
-			A.erase(A.begin()+i, A.end()-n+i);
-			n--;
-			i--;
-		}
-	}
+	print_array(A, &a_len);
+	print_array(B, &b_len);
+	del(A, &a_len, max(A, &a_len));
+	del(B, &b_len, max(B, &b_len));
+	concat(A, &a_len, B, &b_len);	
+
+	print_array(A, &a_len);
+	print_array(B, &b_len);
 }

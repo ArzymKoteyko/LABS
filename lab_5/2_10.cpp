@@ -4,12 +4,12 @@
 using namespace std;
 
 const int n = 6;
-vector <vector<int>> matrix = {{  0,  4,  2,  6, -1,  3},  
-                               { -4, -2,  1,  9, -9,  2},  
-                               {  2,  3,  1,  5, -5, -5},  
-                               {  2,  4,  1,  0,  9, -1},  
-                               { -4,  5,  1,  3,  4,  2},  
-                               { -2,  3,  8, -7,  1,  0}};
+vector <vector<int>> matrix = {{   0,  4,  2,  6, -1,  3},  
+                               {  -4, -2,  1,  9, -9,  2},  
+                               {   2,  3,  1,  5, -5, -5},  
+                               {   2,  4,  1,  0,  9, -1},  
+                               { -10,  5,  1,  3,  4,  2},  
+                               {  -2,  3,  8, -7,  1,  0}};
 
 // printing given matrix to console
 void print_matrix(vector<vector<int>> *matrix) {
