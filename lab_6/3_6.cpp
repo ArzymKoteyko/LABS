@@ -81,15 +81,16 @@ class Pull {
 			item.add_answer(new_answer.item);
 		}
 
-		string create_field(int variant_lenght, int count_lenght, string variant, int count, float percent) {
+		string create_field(int variant_lenght, int count_lenght, string *variant, int count, float percent) {
 			string result;
-			for (int i=0; i<variant_lenght - variant.size(); i++) {
+			for (int i=0; i<variant_lenght - variant->size(); i++) {
 				result += " ";
 			}
-			result += variant;
+			result += *variant;
 			result += " : ";
 			result += to_string(count);
-			for (int i=0; i<count_lenght - to_string(count).size(); i++) {
+			int lenght = to_string(count).size();;
+			for (int i=0; i<count_lenght - lenght; i++) {
 				result += " ";
 			}
 			result += " : ";
@@ -100,7 +101,7 @@ class Pull {
 		
 		void print_line(int idx) {
 			if (idx < animal.variants.size()) { 
-				cout << create_field(10, 2, animal.variants[idx], animal.variants_counter[idx], float(animal.variants_counter[idx]) / animal.total_answers * 100);
+				cout << create_field(10, 2, &animal.variants[idx], animal.variants_counter[idx], float(animal.variants_counter[idx]) / animal.total_answers * 100);
 			}
 			else {
 				for (int i=0; i<10+2+3+3+8; i++) {
@@ -108,7 +109,7 @@ class Pull {
 				}
 			}
 			if (idx < trait.variants.size()) {
-				cout << create_field(10, 2, trait.variants[idx], trait.variants_counter[idx], float(trait.variants_counter[idx]) / trait.total_answers * 100);
+				cout << create_field(10, 2, &trait.variants[idx], trait.variants_counter[idx], float(trait.variants_counter[idx]) / trait.total_answers * 100);
 			}
 			else {
 				for (int i=0; i<10+2+3+3+8; i++) {
@@ -116,7 +117,7 @@ class Pull {
 				}
 			}
 			if (idx < item.variants.size()) {
-				cout << create_field(10, 2, item.variants[idx], item.variants_counter[idx], float(item.variants_counter[idx]) / item.total_answers * 100);
+				cout << create_field(10, 2, &item.variants[idx], item.variants_counter[idx], float(item.variants_counter[idx]) / item.total_answers * 100);
 			}
 			else {
 				for (int i=0; i<10+2+3+3+8; i++) {
@@ -138,22 +139,26 @@ class Pull {
 int main () {
 	Pull my_pull = Pull();
 	Answer a;
-	a.animal = "1"; a.trait = "1"; a.item = "1";
+	a.animal = "Tanuki"; a.trait = "empatic"; a.item = "loli";
 	my_pull.add_answers_to_pull(a);
-	a.animal = "2"; a.trait = "1"; a.item = "3";
+	a.animal = "Kidsi"; a.trait = "hardworking"; a.item = "anime";
 	my_pull.add_answers_to_pull(a);
-	a.animal = "2"; a.trait = "2"; a.item = "2";
+	a.animal = "Tanuki"; a.trait = "empatic"; a.item = "sinkansen";
 	my_pull.add_answers_to_pull(a);
-	a.animal = "1"; a.trait = "2"; a.item = "1";
+	a.animal = "Tanuki"; a.trait = "social"; a.item = "nisan";
 	my_pull.add_answers_to_pull(a);
-	a.animal = "3"; a.trait = "1"; a.item = "1";
+	a.animal = "Kidsi"; a.trait = "lonely"; a.item = "sushi";
 	my_pull.add_answers_to_pull(a);
-	a.animal = "4"; a.trait = "1"; a.item = "1";
+	a.animal = "Dear"; a.trait = "hardworking"; a.item = "sushi";
 	my_pull.add_answers_to_pull(a);
-	a.animal = "3"; a.trait = "1"; a.item = "1";
+	a.animal = "Tanuki"; a.trait = "naturalistic"; a.item = "nuclear bomb";
 	my_pull.add_answers_to_pull(a);
 
+	for (int i=0; i< my_pull.trait.variants.size(); i++) {
+		cout << my_pull.trait.variants[i] << " ";
+	}
 	my_pull.show_results();
+	cout << endl;
 	
 	return 0;
 }

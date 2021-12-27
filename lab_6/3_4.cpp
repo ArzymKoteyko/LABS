@@ -28,12 +28,15 @@ void sort (Racer **group, int size) {
 	 for (int i=0; i<size; i++) {
 		int min_val = group[i]->time;
 		int idx = i;
-		for (int j=i+1; j<size; j++) {
+		for (int j=i; j<size; j++) {
 			if (group[j]->time < min_val) {
-				group[j] = group[idx];
-				
+				min_val = group[idx]->time;
+				idx = j;
 			}
 		}
+		Racer *swap = group[i];
+		group[i] = group[idx];
+		group[idx] = swap;
 	 }
 }
 
@@ -72,7 +75,14 @@ int main () {
 	} 
 	
 	print_group(G_A, n, "Group A");
-	
+	sort(G_A, n);
+	print_group(G_A, n, "Group A");
+	print_group(G_B, m, "Group B");
+	sort(G_B, n);
+	print_group(G_B, m, "Group B");
+	print_group(Total, n+m, "Total");
+	sort(Total, n+m);
+	print_group(Total, n+m, "Total");
 
 	return 0;
 

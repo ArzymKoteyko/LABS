@@ -1,5 +1,4 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -54,4 +53,6 @@ int main() {
 
 	print_array(A, &a_len);
 	print_array(B, &b_len);
+
+	return 0;
 }
